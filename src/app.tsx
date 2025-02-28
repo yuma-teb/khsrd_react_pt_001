@@ -1,9 +1,8 @@
-import { Button } from "flowbite-react";
-
+import BookPage from "./pages/Book";
 export default function App() {
 	return (
 		<>
-			<Button>haas</Button>
+			<BookPage />
 		</>
 	);
 }
