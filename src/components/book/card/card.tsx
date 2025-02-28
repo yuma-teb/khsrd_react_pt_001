@@ -14,7 +14,6 @@ export default function BookCard({
 	handleRemove,
 }: Readonly<CardTypeProps>) {
 	const [isDeleting, setIsDeleting] = useState<boolean>(false);
-
 	return (
 		<>
 			<Card href="#" className="max-w-sm relative">
@@ -28,6 +27,9 @@ export default function BookCard({
 				<p className="font-normal text-gray-700 dark:text-gray-400">
 					quantity: {quantity}
 				</p>
+				<p className="font-normal text-gray-700 dark:text-gray-400">
+					publish at: {date?.toString()}
+				</p>
 				<GiCancel
 					className="w-6 h-6 absolute -top-2 -right-3"
 					color="red"
@@ -39,6 +41,7 @@ export default function BookCard({
 					handleRemoveBook={handleRemove}
 					id={id}
 					onCancel={() => setIsDeleting(false)}
+					title={`Are you sure to want to delete ${title}`}
 				/>
 			)}
 		</>

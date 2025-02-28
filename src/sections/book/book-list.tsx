@@ -5,6 +5,7 @@ type Props = {
 	handleRemove: (id: number) => void;
 };
 export default function BookList({ books, handleRemove }: Readonly<Props>) {
+	console.log("books", books);
 	return (
 		<>
 			{books?.map((book) => (

@@ -4,6 +4,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 type Props = {
 	id: number;
+	title?: string;
 	handleRemoveBook: (id: number) => void;
 	onCancel: VoidFunction;
 };
@@ -11,6 +12,7 @@ export function ModalComponent({
 	handleRemoveBook,
 	onCancel,
 	id,
+	title = defaultTitle,
 }: Readonly<Props>) {
 	const [openModal, setOpenModal] = useState(true);
 
@@ -31,7 +33,7 @@ export function ModalComponent({
 					<div className="text-center">
 						<HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
 						<h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-							Are you sure you want to delete this product?
+							{title}
 						</h3>
 						<div className="flex justify-center gap-4">
 							<Button color="failure" onClick={removeBook}>
@@ -47,3 +49,5 @@ export function ModalComponent({
 		</>
 	);
 }
+
+const defaultTitle = "Are you sure?";
