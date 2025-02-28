@@ -1,5 +1,4 @@
 import { BookType } from "../../types/book";
-
 type Props = {
 	books: BookType[];
 };
