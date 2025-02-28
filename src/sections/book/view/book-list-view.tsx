@@ -17,7 +17,7 @@ export default function BookView() {
 		throw new Error("useBook must be used within a BookProvider");
 	}
 
-	const { books } = bookContext;
+	const { books, handleRemoveBookById } = bookContext;
 
 	return (
 		<Accordion collapseAll>
@@ -25,7 +25,7 @@ export default function BookView() {
 				<AccordionTitle>Book List</AccordionTitle>
 				<AccordionContent>
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-						<BookList books={books} />
+						<BookList books={books} handleRemove={handleRemoveBookById} />
 					</div>
 				</AccordionContent>
 			</AccordionPanel>

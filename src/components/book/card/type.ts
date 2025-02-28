@@ -1,4 +1,5 @@
-import { CardProps } from "flowbite-react";
 import { BookType } from "../../../types/book";
 
-export type CardTypeProps = BookType;
+export type CardTypeProps = BookType & {
+	handleRemove: (id: number) => void;
+};

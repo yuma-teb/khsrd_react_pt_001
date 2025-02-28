@@ -1,7 +1,6 @@
-import { FloatingLabel } from "flowbite-react";
+import { Datepicker, FloatingLabel, Button } from "flowbite-react";
 import { BookType } from "@/types/book";
 import { useActionState, useContext, useState } from "react";
-import { STORAGE_KEY } from "@/utils/storageConstants";
 import { BookContext } from "@/context/book-provider";
 
 export default function BookCreate() {
@@ -39,6 +38,7 @@ export default function BookCreate() {
 					name="title"
 					autoFocus={true}
 					onChange={handleChange}
+					required
 				/>
 				<FloatingLabel
 					variant="outlined"
@@ -46,6 +46,7 @@ export default function BookCreate() {
 					label="Author Name"
 					onChange={handleChange}
 					min={1}
+					required
 				/>
 				<FloatingLabel
 					variant="outlined"
@@ -54,6 +55,7 @@ export default function BookCreate() {
 					label="Edition"
 					onChange={handleChange}
 					min={1}
+					required
 				/>
 				<FloatingLabel
 					variant="outlined"
@@ -61,15 +63,18 @@ export default function BookCreate() {
 					label="Quantity"
 					type="number"
 					onChange={handleChange}
+					required
+				/>
+				<Datepicker
+					name="date"
+					onChange={(date) => {
+						console.log("Handle date change ", date);
+					}}
+					required
 				/>
 			</div>
 			<div className="mt-4">
-				<button
-					type="submit"
-					className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-				>
-					Submit
-				</button>
+				<Button type="submit">Submit</Button>
 			</div>
 		</form>
 	);

@@ -9,6 +9,7 @@ type Props = {
 type BookContextProps = {
 	books: BookType[];
 	handleSetBooks: (book: BookType) => void;
+	handleRemoveBookById: (id: number) => void;
 };
 
 const BookContext = createContext<BookContextProps>({} as BookContextProps);
@@ -25,9 +26,16 @@ function BookProvider({ children }: Props) {
 		setBooks([...books, book]);
 	};
 
+	const handleRemoveBookById = (id: number) => {
+		const updatedBook = books.filter((book) => book.id !== id);
+		localStorage.setItem("book", JSON.stringify(updatedBook));
+		setBooks(updatedBook);
+	};
+
 	const bookMemo = {
 		books,
 		handleSetBooks,
+		handleRemoveBookById,
 	};
 	return <BookContext value={bookMemo}>{children}</BookContext>;
 }
